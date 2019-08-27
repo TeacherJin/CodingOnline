@@ -8,7 +8,9 @@ import me.vk.CodingOnline.controller.StudentController;
 public class MainConfig extends JFinalConfig {
     @Override
     public void configConstant(Constants me) {
+        //开启调试模式
         me.setDevMode(true);
+        //使用FreeMarker来渲染页面
         me.setViewType(ViewType.FREE_MARKER);
     }
 
