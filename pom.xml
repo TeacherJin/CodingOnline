@@ -42,13 +42,31 @@
       <scope>compile</scope>
     </dependency>
 
+<!--freemarker支持-->
     <dependency>
       <groupId>org.freemarker</groupId>
       <artifactId>freemarker</artifactId>
       <version>2.3.29</version>
     </dependency>
 
+<!--数据库插件druid支持-->
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.1.20</version>
+    </dependency>
+
+    <!--  mariadb的jdbc驱动-->
+      <dependency>
+        <groupId>org.mariadb.jdbc</groupId>
+        <artifactId>mariadb-java-client</artifactId>
+        <version>2.4.3</version>
+      </dependency>
+
+
   </dependencies>
+
+
 
   <build>
     <finalName>CodingOnline</finalName>
