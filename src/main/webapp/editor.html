@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <#include "include.html">
+    <title>在线代码编辑器</title>
+</head>
+<body>
+<#include "head.html">
+<div class="container">
+    <div class=" col-lg-2 bg-primary" style="height: 100%">
+        这里是文件列表，显示已经被保存的.java文件
+        <br>
+        <button type="submit" class="btn btn-info">新建</button>
+    </div>
+
+    <div class="container">
+        <div class="col-lg-8 col-lg-offset-1 bg-info" style="height: 80%">
+            这里是代码编辑窗口，显示代码
+            <br>
+            <button type="submit" class="btn btn-info">运行</button>
+        </div>
+        <div class="col-lg-8 col-lg-offset-1 bg-success" style="height: 20%">
+            这里显示编译和运行结果
+        </div>
+    </div>
+</div>
+<#include "footer.html">
+</body>
+</html>
