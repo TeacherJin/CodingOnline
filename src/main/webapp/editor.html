@@ -21,15 +21,15 @@
 
                     <ul class="nav nav-pills nav-stacked">
                         <#list session.javaFiles as file>
-                            <li><a href="/openFile?file=${file}">${file}</a></li>
+                            <li><a href="./openFile?file=${file}">${file}</a></li>
                         </#list>
                     </ul>
                 </div>
             </div>
             <div class="container col-lg-10">
                 <div class="bg-info">
-                    <div class="text-right">你好，${session.studentName!"非法登录"}, <a href="/logout">退出</a></div>
-                    <form action="/runCode" role="form" method="POST">
+                    <div class="text-right">你好，${session.studentName!"非法登录"}, <a href="./logout">退出</a></div>
+                    <form action="./runCode" role="form" method="POST">
                         <div class="form-group form-inline">
                             <label for="className">程序主类名称：</label>
                             <input type="text" class="form-control" id="className" name="className"
