@@ -38,8 +38,8 @@
       <artifactId>jetty-server</artifactId>
       <version>2019.3</version>
 <!-- 如果是使用 IDEA 开发，scope 仍然得设置成为 compile，否则提示缺少 jar 包，在打包的时候记得要改回 provided，避免打进一些不需要的 jar 包 -->
-      <scope>provided</scope>
-<!--      <scope>compile</scope>-->
+<!--      <scope>provided</scope>-->
+      <scope>compile</scope>
     </dependency>
 
 <!--freemarker支持-->

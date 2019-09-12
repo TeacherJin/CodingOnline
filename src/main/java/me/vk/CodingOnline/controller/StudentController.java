@@ -43,7 +43,7 @@ public class StudentController extends Controller {
             redirect("/editor");
         } else {
             //给出错误提示信息并提供跳转回首页的链接
-            renderHtml("输入的用户名或密码错误，请返回<a href=\"/index\">首页</a>并重新输入正确信息");
+            renderHtml("输入的用户名或密码错误，请返回<a href=\"./index\">首页</a>并重新输入正确信息");
         }
 
     }
@@ -85,7 +85,7 @@ public class StudentController extends Controller {
             String codesPath = getRequest().getServletContext().getRealPath("/codes") + "/" + studentId;
             File file = new File(codesPath);
             if (file.mkdir()) {
-                renderHtml("您已经注册成功，请返回<a href=\"/index\">首页</a>并登录");
+                renderHtml("您已经注册成功，请返回<a href=\"./index\">首页</a>并登录");
             } else {
                 renderHtml("<font color='red'>服务器出现问题，请联系管理员</font>");
             }
