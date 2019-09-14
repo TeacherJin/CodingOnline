@@ -56,6 +56,7 @@ public class StudentController extends Controller {
         String codesPath = getRequest().getServletContext().getRealPath("/codes") + "/" + studentId;
         //获取Tools对象
         Tools tool=new Tools(codesPath);
+        //获取用户代码目录下的源代码文件名称
         List<String> javaFiles=tool.listCodeFiles();
         setSessionAttr("javaFiles",javaFiles);
         render("/editor.html");

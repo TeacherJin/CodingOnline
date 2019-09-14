@@ -31,13 +31,15 @@ public class MainConfig extends JFinalConfig {
 
     @Override
     public void configPlugin(Plugins me) {
+        //使用DruidPlugin插件调用Druid数据库连接池工具包，指定数据库地址、驱动程序类型、访问用户和密码
         DruidPlugin dp=new DruidPlugin("jdbc:mariadb://localhost/codedb","root","1981218");
         me.add(dp);
+        //将数据库链接对象加入到ActiveRecord中
         ActiveRecordPlugin arp=new ActiveRecordPlugin(dp);
         me.add(arp);
+        //添加对数据表的映射，以便可以通过对应的Model类访问这些表
         arp.addMapping("student", Student.class);
         arp.addMapping("verse", Verse.class);
-
     }
 
     @Override
