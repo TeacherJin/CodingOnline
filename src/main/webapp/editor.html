@@ -15,85 +15,88 @@
     <script src="./codemirror/mode/clike/clike.js"></script>
     <script src="./codemirror/addon/edit/closebrackets.js"></script>
     <script src="./codemirror/addon/edit/matchbrackets.js"></script>
-    <title>在线代码编辑器</title>
+    <title>Java编程语言在线编译器</title>
 </head>
 
 <body>
 <style type="text/css">
     .CodeMirror {
         border: 1px solid black;
-        font-size:14px;
+        font-size: 14px;
         border-radius: 5px
     }
 </style>
 
-    <#include "head.html">
-        <div class="container">
-            <div class="container col-lg-2">
-                <div class="bg-warning">
-                    <br>
-                    <div class="text-center">
-                        <h4>现有程序</h4>
-                    </div>
-
-                    <ul class="nav nav-pills nav-stacked">
-                        <#list session.javaFiles as file>
-                            <li><a href="./openFile?file=${file}">${file}</a></li>
-                        </#list>
-                    </ul>
-                </div>
+<#include "head.html">
+<div class="container">
+    <div class="container col-lg-2">
+        <div class="bg-warning">
+            <br>
+            <div class="text-center">
+                <h4>现有程序</h4>
             </div>
-            <div class="container col-lg-10">
-                <div class="bg-info">
-                    <div class="text-right">你好，${session.studentName!"非法登录"}, <a href="./logout">退出</a></div>
-                    <form action="./runCode" role="form" method="POST">
-                        <div class="form-group form-inline">
-                            <label for="className">程序主类名称：</label>
-                            <input type="text" class="form-control" id="className" name="className"
-                                placeholder="请输入程序主类名称" required="true" value="${session.className!""}">
-                            请在下面输入你的程序代码：
-                            <br>
-                            <!--下拉框用来换选主题配色的，当然主题配色非常多，这里只是随便列举几个例子-->
-                            <p>
-                                <label for="className">请选择一种风格：</label>
-                                <select onchange="selectTheme()" id="select">
-                                    <option selected>default</option>
-                                    <option>monokai</option>
-                                    <option>3024-day</option>
-                                    <option>3024-night</option>
-                            </select>
-                            </p>
-                            <textarea class="form-control cm-s-monokai"  name="code" id="code" rows="20"
-                                style="min-width: 100%">${session.code!""}</textarea>
-                        </div>
-                        <input type="hidden" name="studentId" value="${session.studentId}">
 
-                        <button type="submit" class="btn btn-info">提交运行</button>
-                    </form>
-                </div>
+            <ul class="nav nav-pills nav-stacked">
+                <#list session.javaFiles as file>
+                    <li><a href="./openFile?file=${file}">${file}</a></li>
+                </#list>
+            </ul>
+        </div>
+    </div>
+    <div class="container col-lg-10">
+        <div class="bg-info">
+            <div class="text-right">你好，${session.studentName!"非法登录"}, <a href="./logout">退出</a></div>
+            <form action="./runCode" role="form" method="POST">
+                <div class="form-group form-inline">
+                    <label for="className">程序主类名称：</label>
+                    <input type="text" class="form-control" id="className" name="className"
+                           placeholder="请输入程序主类名称" required="true" value="${session.className!""}">
 
-                <div class="pre-scrollable bg-success">
+                    <!--下拉框用来换选主题配色的，当然主题配色非常多，这里只是随便列举几个例子-->
+
+                    <label for="className">请选择一种风格：</label>
+                    <select onchange="selectTheme()" id="select">
+                        <option selected>default</option>
+                        <option>monokai</option>
+                        <option>3024-day</option>
+                        <option>3024-night</option>
+                    </select>
+
                     <br>
-                    <pre>
+                    请在下面输入你的程序代码：
+                    <br>
+                    <textarea class="form-control cm-s-monokai" name="code" id="code" rows="20"
+                              style="min-width: 100%">${session.code!""}</textarea>
+                </div>
+                <input type="hidden" name="studentId" value="${session.studentId}">
+
+                <button type="submit" class="btn btn-info">提交运行</button>
+            </form>
+        </div>
+
+        <div class="pre-scrollable bg-success">
+            <br>
+            <pre>
 ${session.result!""}
                     </pre>
-                </div>
-            </div>
         </div>
+    </div>
+</div>
 
 <script>
     var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
-        lineNumbers:true,//是否显示每一行的行数
-        readOnly:false,//可以写入
-        styleActiveLine:true,
-        matchBrackets:true, //括号匹配
-        autoCloseBrackets:true,
-        indentUnit:4,//制表符缩进量，这里设置为4
-        mode:"text/x-java",//显示Java代码的高亮方案
-        theme:"monokai"   //默认配色方案是monokai
+        lineNumbers: true,//是否显示每一行的行数
+        readOnly: false,//可以写入
+        styleActiveLine: true,
+        matchBrackets: true, //括号匹配
+        autoCloseBrackets: true,
+        indentUnit: 4,//制表符缩进量，这里设置为4
+        mode: "text/x-java",//显示Java代码的高亮方案
+        theme: "monokai"   //默认配色方案是monokai
     });
     //下拉框选择的时候换主题配色
     var input = document.getElementById("select");
+
     function selectTheme() {
         var theme = input.options[input.selectedIndex].textContent;//获取下拉框的内容
         editor.setOption("theme", theme);//把内容设置为主题色，
@@ -102,7 +105,7 @@ ${session.result!""}
 
 </script>
 
-        <#include "footer.html">
+<#include "footer.html">
 </body>
 
 </html>
