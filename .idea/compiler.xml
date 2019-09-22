@@ -9,5 +9,8 @@
         <module name="CodingOnline" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="CodingOnline" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
